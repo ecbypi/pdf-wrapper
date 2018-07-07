@@ -304,22 +304,22 @@ module PDF
 
       # set the alignment of the text in the layout
       if options[:alignment].eql?(:left)
-        layout.alignment = Pango::Layout::ALIGN_LEFT
+        layout.alignment = Pango::Alignment::LEFT
       elsif options[:alignment].eql?(:right)
-        layout.alignment = Pango::Layout::ALIGN_RIGHT
+        layout.alignment = Pango::Alignment::RIGHT
       elsif options[:alignment].eql?(:center) || options[:alignment].eql?(:centre)
-        layout.alignment = Pango::Layout::ALIGN_CENTER
+        layout.alignment = Pango::Alignment::CENTER
       else
         raise ArgumentError, "Invalid alignment requested"
       end
 
       # set the wrapping technique text of the layout
       if options[:wrap].eql?(:word)
-        layout.wrap = Pango::Layout::WRAP_WORD
+        layout.wrap = Pango::WrapMode::WORD
       elsif options[:wrap].eql?(:char)
-        layout.wrap = Pango::Layout::WRAP_CHAR
+        layout.wrap = Pango::WrapMode::CHAR
       elsif options[:wrap].eql?(:wordchar)
-        layout.wrap = Pango::Layout::WRAP_WORD_CHAR
+        layout.wrap = Pango::WrapMode::WORD_CHAR
       else
         raise ArgumentError, "Invalid wrap technique requested"
       end
