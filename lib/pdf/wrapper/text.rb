@@ -384,7 +384,7 @@ module PDF
         # draw the line on the canvas
         @context.show_pango_layout_line(line)
 
-        break unless iter.next_line!
+        break unless iter.next_line
       end
 
       width, height = layout.size
