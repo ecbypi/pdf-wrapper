@@ -360,7 +360,7 @@ module PDF
 
       iter = layout.iter
       loop do
-        line = iter.line
+        line = iter.line_readonly
         ink_rect, logical_rect = iter.line_extents
 
         # calculate the relative starting co-ords of this line
