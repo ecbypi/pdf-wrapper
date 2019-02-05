@@ -244,7 +244,7 @@ module PDF
     # does all the hard work of calculating text layout, wrapping, fonts, sizes,
     # direction and more. Thank $diety.
     #
-    # The string should be encoded using utf-8. If you get unexpected characters in the 
+    # The string should be encoded using utf-8. If you get unexpected characters in the
     # rendered output, check the string encoding. Under Ruby 1.9 compatible VMs, any
     # non utf-8 strings will be automatically converted if possible.
     #
@@ -258,7 +258,7 @@ module PDF
     # <tt>:markup</tt>::    The markup language of the string. See Wrapper#text for more information
     # <tt>:spacing</tt>::   The spacing between lines. See Wrapper#text for more information
     # <tt>:alignment</tt>:: The alignment of the text. See Wrapper#text for more information
-    # <tt>:justify</tt>::   Should spacing between words be tweaked so each edge of the line touches 
+    # <tt>:justify</tt>::   Should spacing between words be tweaked so each edge of the line touches
     #                       the edge of the layout. See Wrapper#text for more information
     # <tt>:font</tt>::      The font to use. See Wrapper#text for more information
     # <tt>:font_size</tt>:: The font size to use. See Wrapper#text for more information
@@ -342,8 +342,8 @@ module PDF
     # distributed with rcairo - it's still black magic to me and has a few edge
     # cases where it doesn't work too well. Needs to be improved.
     #
-    # If h is specified, lines of text will be rendered up to that height, and 
-    # the rest will be ignored. 
+    # If h is specified, lines of text will be rendered up to that height, and
+    # the rest will be ignored.
     #
     # If h is nil, lines will be rendered until the bottom margin is hit, then
     # a new page will be started and lines will continue being rendered at the
@@ -371,7 +371,7 @@ module PDF
           # the user doesn't want us to continue on the next page, so
           # stop adding lines to the canvas
           break
-        elsif h.nil? && (y + baseline - offset + spacing) >= self.absolute_bottom_margin
+        elsif h.nil? && (y + baseline - offset + spacing + @footer_height) >= self.absolute_bottom_margin
           # create a new page and we can continue adding text
           offset = baseline
           start_new_page

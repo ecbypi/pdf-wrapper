@@ -159,6 +159,7 @@ module PDF
       @margin_right = options[:margin_right] || (@page_width * 0.05).ceil
       @margin_top = options[:margin_top] || (@page_height * 0.05).ceil
       @margin_bottom = options[:margin_bottom] || (@page_height * 0.05).ceil
+      @footer_height = 0
 
       # initialize some cairo objects to draw on
       @output = output
@@ -188,6 +189,10 @@ module PDF
 
       # move the cursor to the top left of the usable canvas
       reset_cursor
+    end
+
+    def footer_height(value)
+      @footer_height = value
     end
 
     # convenience method, takes the same arguments as the constructor along with a block,
